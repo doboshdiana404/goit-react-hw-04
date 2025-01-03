@@ -1,0 +1,31 @@
+header {
+  background-color: #3747ac;
+  padding: 10px;
+}
+input {
+  border-radius: 3px;
+  border: none;
+  padding: 7px;
+  margin-right: 10px;
+  width: 400px;
+  font-size: 16px;
+  padding-left: 30px;
+  /* position: relative; */
+}
+
+form {
+  text-align: center;
+}
+
+.wrap {
+  position: relative;
+}
+
+.icon {
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -38%);
+  /* color: black; */
+}
