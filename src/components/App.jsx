@@ -80,6 +80,23 @@ function App() {
     setSelectedImageId(null);
     document.body.style.overflow = 'auto';
   };
+  const handleKeyPress = e => {
+    if (selectedImageId === null) return;
+
+    const currentIndex = images.findIndex(img => img.id === selectedImageId);
+
+    if (e.key === 'ArrowRight' && currentIndex < images.length - 1) {
+      setSelectedImageId(images[currentIndex + 1].id);
+    } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+      setSelectedImageId(images[currentIndex - 1].id);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyPress);
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [selectedImageId, images]);
 
   return (
     <div id="main">

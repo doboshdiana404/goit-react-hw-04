@@ -28,16 +28,15 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Центруємо лупу по центру */
-  font-size: 2rem; /* Розмір лупи */
-  color: white; /* Колір лупи */
-  opacity: 0; /* Спочатку прихована */
-  transition: opacity 0.3s ease; /* Плавний перехід */
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Коли зображення в контейнері з лупою - показуємо іконку */
 .imageContainer:hover .magnifying-glass {
-  opacity: 1; /* Показуємо лупу при наведенні */
+  opacity: 1;
 }
 
 .modalDescription {
