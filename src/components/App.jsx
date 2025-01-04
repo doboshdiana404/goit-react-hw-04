@@ -7,7 +7,7 @@ import SearchBar from './SearchBar/SearchBar';
 import axios from 'axios';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
 import toast from 'react-hot-toast';
-
+import Modal from 'react-modal';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,6 +17,7 @@ function App() {
   const [hasMoreImages, setHasMoreImages] = useState(true);
   const [selectedImageId, setSelectedImageId] = useState(null);
   useEffect(() => {
+    Modal.setAppElement('#main');
     const getImagesData = async () => {
       try {
         setIsLoading(true);
@@ -71,10 +72,17 @@ function App() {
     setImages([]);
     setHasMoreImages(true);
   };
-  const openModal = id => setSelectedImageId(id);
-  const closeModal = () => setSelectedImageId(null);
+  const openModal = id => {
+    setSelectedImageId(id);
+    document.body.style.overflow = 'hidden';
+  };
+  const closeModal = () => {
+    setSelectedImageId(null);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
-    <>
+    <div id="main">
       <SearchBar onSearch={handleChangeQuery} />
       <ImageGallery
         images={images}
@@ -85,7 +93,7 @@ function App() {
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {hasMoreImages && <LoadMoreBtn handleChangePage={handleChangePage} />}
-    </>
+    </div>
   );
 }
 

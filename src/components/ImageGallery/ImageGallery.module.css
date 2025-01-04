@@ -10,3 +10,53 @@ img {
   display: block;
   object-fit: cover;
 }
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.imageContainer img {
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover img {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+.magnifying-glass {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центруємо лупу по центру */
+  font-size: 2rem; /* Розмір лупи */
+  color: white; /* Колір лупи */
+  opacity: 0; /* Спочатку прихована */
+  transition: opacity 0.3s ease; /* Плавний перехід */
+}
+
+/* Коли зображення в контейнері з лупою - показуємо іконку */
+.imageContainer:hover .magnifying-glass {
+  opacity: 1; /* Показуємо лупу при наведенні */
+}
+
+.modalDescription {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  padding: 10px 0;
+}
+.descriptionModal {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
