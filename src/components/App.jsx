@@ -8,6 +8,7 @@ import axios from 'axios';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
 import toast from 'react-hot-toast';
 import Modal from 'react-modal';
+import ImageModal from './ImageModal/ImageModal';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -110,6 +111,11 @@ function App() {
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {hasMoreImages && <LoadMoreBtn handleChangePage={handleChangePage} />}
+      <ImageModal
+        images={images}
+        closeModal={closeModal}
+        selectedImageId={selectedImageId}
+      />
     </div>
   );
 }
