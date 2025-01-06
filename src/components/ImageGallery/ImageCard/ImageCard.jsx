@@ -10,6 +10,7 @@ export default function ImageCard({ item, openModal }) {
         width={360}
         height={240}
         onClick={() => openModal(item.id)}
+        loading="lazy"
       />
       <div className={s['magnifying-glass']}>
         <FaMagnifyingGlassPlus />
